@@ -1,0 +1,12 @@
+<div *ngIf="showForm">
+  <input id="input-task-name" type="text"
+  placeholder="nom tache..." />
+
+  <!--
+      A chaque fois fois que l'utilisateur clique sur le button Ajouter,
+      la fonction saveTask est executée
+  -->
+  <button
+     (click)="saveTask()"
+    value="Ajouter">Ajouter</button>
+</div>

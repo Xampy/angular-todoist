@@ -1,0 +1,32 @@
+<h2>{{ title }}</h2>
+
+<!--
+  Le parent ne peut pas accéder directement auw données du fils
+  donc il est alors obligés d'écoyer les actions
+
+  Le parent écoute l'évènement onTask du fils.
+  Le fils déclenche cet évènement a chaque qu'il y a une tâche.
+
+  La valeur ou le nom de la tâche est stocké dans $event
+
+  On récupére cette valeur et on l'ajoute à la fin de nos
+  taches.
+-->
+<app-todoist-add (onTask)="tasks.push($event)"></app-todoist-add>
+
+<table style="margin: 30px">
+  <thead>
+    <tr>
+      <th>Nom tâche</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--
+      Angular détecte automatiquement les changements opérés sur
+      opérer sur la variable data
+    -->
+    <tr *ngFor="let task of tasks;">
+      <td>{{ task }}</td>
+    </tr>
+  </tbody>
+</table>
